@@ -1,4 +1,4 @@
-# webpack-post-compile-plugin
+# webpack-post-compile-plugin [![Build Status](https://travis-ci.org/dolymood/webpack-post-compile-plugin.svg?branch=master)](https://travis-ci.org/dolymood/webpack-post-compile-plugin?branch=master) [![codecov.io](http://codecov.io/github/dolymood/webpack-post-compile-plugin/coverage.svg?branch=master)](http://codecov.io/github/dolymood/webpack-post-compile-plugin?branch=master)
 
 A webpack post compile plugin. It is used to include post compile modules in node_modules.
 
