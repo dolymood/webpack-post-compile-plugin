@@ -5,7 +5,7 @@ A webpack post compile plugin. It is used to include post compile modules in nod
 ### Install
 
 ```shell
-npm i webpack-post-compile-plugin --D
+npm i webpack-post-compile-plugin --save-dev
 ```
 
 ### Usage
