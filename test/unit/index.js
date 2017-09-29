@@ -37,6 +37,14 @@ describe('PostCompilePlugin', function () {
         }
       },
       plugin: function (name, fn) {
+        if (Array.isArray(name)) {
+          return name.forEach(function (n) {
+            compiler._plugins.push({
+              name: n,
+              cb: fn
+            })
+          })
+        }
         compiler._plugins.push({
           name: name,
           cb: fn
