@@ -20,7 +20,8 @@ describe('util', function () {
     expect(dependencies[0]).to.equal(path.resolve(__dirname, '../cases/normal/node_modules/a'))
     dependencies = []
     util.collectDependencies(['b'], dependencies, context, key)
-    expect(dependencies[0]).to.equal(path.resolve(__dirname, '../cases/normal/node_modules/b'))
+    expect(dependencies[0]).to.equal(path.resolve(__dirname, '../cases/normal/node_modules/a'))
+    expect(dependencies[1]).to.equal(path.resolve(__dirname, '../cases/normal/node_modules/b'))
     dependencies = []
     util.collectDependencies(['c'], dependencies, context, key)
     expect(dependencies.length).to.equal(0)
