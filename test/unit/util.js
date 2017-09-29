@@ -32,9 +32,10 @@ describe('util', function () {
     context = path.resolve(__dirname, '../cases/nested')
     key = 'myCompileDependencies'
     util.collectDependencies(['a', 'b'], dependencies, context, key)
-    expect(dependencies.length).to.equal(3)
+    expect(dependencies.length).to.equal(4)
     expect(dependencies[0]).to.equal(path.resolve(__dirname, '../cases/nested/node_modules/a'))
     expect(dependencies[1]).to.equal(path.resolve(__dirname, '../cases/nested/node_modules/b/node_modules/a'))
-    expect(dependencies[2]).to.equal(path.resolve(__dirname, '../cases/nested/node_modules/b'))
+    expect(dependencies[2]).to.equal(path.resolve(__dirname, '../cases/nested/node_modules/b/node_modules/@dd/a'))
+    expect(dependencies[3]).to.equal(path.resolve(__dirname, '../cases/nested/node_modules/b'))
   })
 })
