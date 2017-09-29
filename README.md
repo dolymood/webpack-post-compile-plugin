@@ -27,7 +27,8 @@ module.exports = {
         include: [path.resolve(__dirname, './')]
         // this plugin will be include the post compile node modules path
         // eg: {"compileDependencies": ["a"]} // package.json
-        // the current rule's include will be like: `[path.resolve(__dirname, './'), path.resolve(process.cwd(), 'node_modules/a')]`
+        // the current rule's include will be like: 
+        // `[path.resolve(__dirname, './'), path.resolve(process.cwd(), 'node_modules/a')]`
       }
       // ...
     ]
