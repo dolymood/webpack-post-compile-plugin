@@ -4,7 +4,7 @@
   "description": "A webpack post compile plugin",
   "main": "lib/index.js",
   "scripts": {
-    "test": "npm run test:unit && npm run codecov npm run test:integration",
+    "test": "npm run test:unit && npm run codecov && npm run test:integration",
     "test:unit": "nyc mocha -t 1000 --recursive ./test/unit",
     "test:integration": "mocha -t 5000 ./test/integration/*.js",
     "codecov": "codecov",
