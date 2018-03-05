@@ -1,6 +1,6 @@
 {
   "name": "webpack-post-compile-plugin",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "A webpack post compile plugin",
   "main": "lib/index.js",
   "scripts": {
@@ -65,5 +65,8 @@
   },
   "peerDependencies": {
     "webpack": ">=3"
+  },
+  "dependencies": {
+    "load-pkg-config": "^1.0.0"
   }
 }
