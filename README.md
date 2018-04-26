@@ -50,4 +50,4 @@ new PostCompilePlugin({
 
 * `dependenciesKey {String}` default `'compileDependencies'`, dependencies key in `package.json`, it is used to find and include post compile node modules.
 
-* `compileDependencies {Array}` default `undefined`, application init post compile node modules, if it is `undefined` then the plugin will get `dependenciesKey` value in `package.json` as the init application's post complie node modules.
+* `compileDependencies {Array}` default `undefined`, application init post compile node modules, if it is `undefined` then the plugin will get `dependenciesKey` value or `dependencies` keys value in `package.json` as the init application's post complie node modules.
