@@ -1,6 +1,6 @@
 {
   "name": "webpack-post-compile-plugin",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "A webpack post compile plugin",
   "main": "lib/index.js",
   "scripts": {
