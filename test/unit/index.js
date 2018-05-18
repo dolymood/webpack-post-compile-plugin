@@ -32,6 +32,16 @@ describe('PostCompilePlugin', function () {
             },
             {
               xx: 'xx'
+            },
+            {
+              oneOf: [
+                {
+                  include: ['xxx']
+                },
+                {
+                  xx: 'xx'
+                }
+              ]
             }
           ]
         }
@@ -53,11 +63,16 @@ describe('PostCompilePlugin', function () {
     }
     p.apply(compiler)
     compiler._plugins[0].cb(compiler, function () {
-      expect(compiler.options.module.rules[0].include[1]).to.equal(path.resolve(__dirname, '../cases/normal/node_modules/a'))
-      expect(compiler.options.module.rules[0].include[2]).to.equal(path.resolve(__dirname, '../cases/normal/node_modules/b'))
+      const a = path.resolve(__dirname, '../cases/normal/node_modules/a')
+      const b = path.resolve(__dirname, '../cases/normal/node_modules/b')
+      expect(compiler.options.module.rules[0].include[1]).to.equal(a)
+      expect(compiler.options.module.rules[0].include[2]).to.equal(b)
       expect(compiler.options.module.rules[1].include.length).to.equal(3)
       expect(compiler.options.module.rules[1].include[0]).to.equal('yy')
       expect(compiler.options.module.rules[2].include).to.be.undefined
+      expect(compiler.options.module.rules[3].oneOf[0].include[1]).to.equal(a)
+      expect(compiler.options.module.rules[3].oneOf[0].include[2]).to.equal(b)
+      expect(compiler.options.module.rules[3].oneOf[1].include).to.be.undefined
     })
   })
 })
