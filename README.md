@@ -2,8 +2,6 @@
 
 A webpack post compile plugin. It is used to include post compile modules in node_modules.
 
-__Note:__ This plugin only works with [webpack module.rule.include](https://webpack.js.org/configuration/module/#rule-include).
-
 ### Install
 
 ```shell

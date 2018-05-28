@@ -4,7 +4,7 @@ var PostCompilePlugin = require('../../../lib/index')
 module.exports = {
   context: __dirname,
   entry: {
-    app: path.resolve(__dirname, './index')
+    app: path.resolve(__dirname, './src/index')
   },
   output: {
     path: path.resolve(__dirname, './'),
@@ -16,7 +16,7 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        include: [path.resolve(__dirname, './')]
+        include: [path.resolve(__dirname, './src')]
       },
       {
         test: /\.json$/,

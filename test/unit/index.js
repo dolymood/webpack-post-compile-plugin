@@ -65,14 +65,32 @@ describe('PostCompilePlugin', function () {
     compiler._plugins[0].cb(compiler, function () {
       const a = path.resolve(__dirname, '../cases/normal/node_modules/a')
       const b = path.resolve(__dirname, '../cases/normal/node_modules/b')
-      expect(compiler.options.module.rules[0].include[1]).to.equal(a)
-      expect(compiler.options.module.rules[0].include[2]).to.equal(b)
-      expect(compiler.options.module.rules[1].include.length).to.equal(3)
-      expect(compiler.options.module.rules[1].include[0]).to.equal('yy')
-      expect(compiler.options.module.rules[2].include).to.be.undefined
-      expect(compiler.options.module.rules[3].oneOf[0].include[1]).to.equal(a)
-      expect(compiler.options.module.rules[3].oneOf[0].include[2]).to.equal(b)
-      expect(compiler.options.module.rules[3].oneOf[1].include).to.be.undefined
+      const aMain = path.resolve(__dirname, '../cases/normal/node_modules/a/index.js')
+      const bMain = path.resolve(__dirname, '../cases/normal/node_modules/b/index.js')
+      const dMain = path.join(__dirname, '../cases/normal/node_modules/dd/index.js')
+
+      expect(compiler.options.module.rules[0].resource(aMain))
+        .to.be.true
+      expect(compiler.options.module.rules[0].resource(bMain))
+        .to.be.true
+      expect(compiler.options.module.rules[0].resource(dMain))
+        .to.be.false
+      expect(compiler.options.module.rules[1].resource(aMain))
+        .to.be.true
+      expect(compiler.options.module.rules[1].resource(bMain))
+        .to.be.true
+      expect(compiler.options.module.rules[1].resource(dMain))
+        .to.be.false
+      expect(compiler.options.module.rules[2].resource)
+        .to.be.undefined
+      expect(compiler.options.module.rules[3].oneOf[0].resource(aMain))
+        .to.be.true
+      expect(compiler.options.module.rules[3].oneOf[0].resource(bMain))
+        .to.be.true
+      expect(compiler.options.module.rules[3].oneOf[0].resource(dMain))
+        .to.be.false
+      expect(compiler.options.module.rules[3].oneOf[1].resource)
+        .to.be.undefined
     })
   })
 })
