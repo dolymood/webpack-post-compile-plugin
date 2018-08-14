@@ -61,12 +61,9 @@
     "json-loader": "^0.5.7",
     "mocha": "^3.5.3",
     "nyc": "^11.2.1",
-    "webpack": "^3.11.0"
+    "webpack": "^4.16.5"
   },
   "peerDependencies": {
-    "webpack": ">=3"
-  },
-  "dependencies": {
-    "load-pkg-config": "^1.0.1"
+    "webpack": ">=4"
   }
 }
