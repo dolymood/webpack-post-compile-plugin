@@ -3,13 +3,15 @@ var PostCompilePlugin = require('../../../lib/index')
 
 module.exports = {
   context: __dirname,
+  mode: 'production',
   entry: {
     app: path.resolve(__dirname, './src/index')
   },
   output: {
     path: path.resolve(__dirname, './'),
     library: 'normal',
-    libraryTarget: 'umd'
+    libraryTarget: 'umd',
+    globalObject: 'this'
   },
   module: {
     rules: [

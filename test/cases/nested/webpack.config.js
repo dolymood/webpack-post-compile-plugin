@@ -3,31 +3,30 @@ var PostCompilePlugin = require('../../../lib/index')
 
 module.exports = {
   context: __dirname,
+  mode: 'production',
   entry: {
-    app: path.resolve(__dirname, './src/index')
+    app: path.resolve(__dirname, './src1/index')
   },
   output: {
     path: path.resolve(__dirname, './'),
     library: 'normal',
-    libraryTarget: 'umd'
+    libraryTarget: 'umd',
+    globalObject: 'this'
   },
   module: {
     rules: [
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        include: [path.resolve(__dirname, './src')]
+        include: [path.resolve(__dirname, './src1')]
       },
       {
-        test: /\.json$/,
-        loader: 'json-loader'
+        test: /\.css$/,
+        loader: 'raw-loader'
       }
     ]
   },
   plugins: [
-    new PostCompilePlugin({
-      dependenciesKey: 'myCompileDependencies',
-      compileDependencies: ['a', 'b']
-    })
+    new PostCompilePlugin()
   ]
 }

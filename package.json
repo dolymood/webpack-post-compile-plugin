@@ -1,32 +1,15 @@
 {
   "name": "webpack-post-compile-plugin",
-  "version": "0.4.1",
+  "version": "1.0.0",
   "description": "A webpack post compile plugin",
   "main": "lib/index.js",
   "scripts": {
-    "test": "npm run test:unit && npm run codecov && npm run test:integration",
-    "test:unit": "nyc mocha -t 1000 --recursive ./test/unit",
-    "test:integration": "mocha -t 5000 ./test/integration/*.js",
-    "codecov": "codecov",
-    "lint": "eslint lib/*"
+    "test": "npm run test:integration",
+    "test:integration": "mocha -t 5000 ./test/integration/*.js"
   },
   "files": [
     "lib"
   ],
-  "nyc": {
-    "check-coverage": false,
-    "lines": 90,
-    "statements": 90,
-    "functions": 90,
-    "branches": 90,
-    "sourceMap": false,
-    "include": [
-      "lib"
-    ],
-    "reporter": [
-      "lcov"
-    ]
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dolymood/webpack-post-compile-plugin.git"
@@ -51,19 +34,16 @@
     "babel-loader": "^7.1.2",
     "babel-preset-es2015": "^6.24.1",
     "chai": "^4.1.2",
-    "codecov": "^2.3.0",
-    "eslint": "^4.7.2",
-    "eslint-config-standard": "^10.2.1",
-    "eslint-plugin-import": "^2.7.0",
-    "eslint-plugin-node": "^5.1.1",
-    "eslint-plugin-promise": "^3.5.0",
-    "eslint-plugin-standard": "^3.0.1",
-    "json-loader": "^0.5.7",
     "mocha": "^3.5.3",
     "nyc": "^11.2.1",
+    "raw-loader": "^0.5.1",
     "webpack": "^4.16.5"
   },
   "peerDependencies": {
     "webpack": ">=4"
+  },
+  "dependencies": {
+    "micromatch": "^3.1.10",
+    "neo-async": "^2.5.2"
   }
 }
