@@ -9,7 +9,8 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, './'),
     library: 'normal',
-    libraryTarget: 'umd'
+    libraryTarget: 'umd',
+    globalObject: 'this'
   },
   module: {
     rules: [

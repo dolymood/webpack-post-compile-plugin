@@ -19,6 +19,7 @@ describe('PostCompilePlugin', function () {
   it('#apply()', function () {
     var p = new PostCompilePlugin()
     var context = path.resolve(__dirname, '../cases/normal')
+    var src = path.resolve(__dirname, '../cases/normal/src')
     var compiler = {
       _plugins: [],
       options: {
@@ -26,7 +27,7 @@ describe('PostCompilePlugin', function () {
         module: {
           rules: [
             {
-              include: ['xx']
+              include: [src]
             },
             {
               include: 'yy'
@@ -37,7 +38,7 @@ describe('PostCompilePlugin', function () {
             {
               oneOf: [
                 {
-                  include: ['xxx']
+                  include: [src]
                 },
                 {
                   xx: 'xx'
@@ -64,8 +65,6 @@ describe('PostCompilePlugin', function () {
     }
     p.apply(compiler)
     compiler._plugins[0].cb(compiler, function () {
-      const a = path.resolve(__dirname, '../cases/normal/node_modules/a')
-      const b = path.resolve(__dirname, '../cases/normal/node_modules/b')
       const aMain = path.resolve(__dirname, '../cases/normal/node_modules/a/index.js')
       const bMain = path.resolve(__dirname, '../cases/normal/node_modules/b/index.js')
       const dMain = path.join(__dirname, '../cases/normal/node_modules/dd/index.js')
@@ -77,9 +76,9 @@ describe('PostCompilePlugin', function () {
       expect(compiler.options.module.rules[0].resource(dMain))
         .to.be.false
       expect(compiler.options.module.rules[1].resource(aMain))
-        .to.be.true
+        .to.be.false
       expect(compiler.options.module.rules[1].resource(bMain))
-        .to.be.true
+        .to.be.false
       expect(compiler.options.module.rules[1].resource(dMain))
         .to.be.false
       expect(compiler.options.module.rules[2].resource)
@@ -154,9 +153,7 @@ describe('PostCompilePlugin', function () {
         ]
       }
     }
-    var p = new PostCompilePlugin({
-      config: options
-    })
+    var p = new PostCompilePlugin()
     const ruleSet = new RuleSet(options.module.rules)
     options.module.rules = ruleSet.rules
     var context = path.resolve(__dirname, '../cases/normal')
