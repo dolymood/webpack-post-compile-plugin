@@ -23,10 +23,8 @@ module.exports = {
         test: /\.js$/,
         loader: 'babel-loader',
         include: [path.resolve(__dirname, './')]
-        // this plugin will be include the post compile node modules path
-        // eg: {"compileDependencies": ["a"]} // package.json
-        // the current rule's include will be like: 
-        // `[path.resolve(__dirname, './'), path.resolve(process.cwd(), 'node_modules/a')]`
+        // eg: {"compileDependencies": ["cube-ui"]} // package.json
+        // the current rule's loader will process node_modules/cube-ui/**/*.js too
       }
       // ...
     ]
@@ -34,6 +32,29 @@ module.exports = {
   plugins: [
     new PostCompilePlugin()
   ]
+}
+```
+
+#### Config
+
+And if you can control all the packages which you want to post compile, you can just add `postCompile: true` to the **packages** `package.json`:
+
+```js
+{
+  "name": "your-one-pkg",
+  // ...
+  "postCompile": true
+  // ...
+}
+```
+
+Or you can add `compileDependencies` to your application `package.json`:
+
+```js
+{
+  "name": "your-application",
+  // ...
+  "compileDependencies": ["xx-pkg"]
 }
 ```
 
