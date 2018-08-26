@@ -70,3 +70,5 @@ new PostCompilePlugin({
 * `dependenciesKey {String}` default `'compileDependencies'`, dependencies key in `package.json`, it is used to find and include post compile node modules.
 
 * `compileDependencies {Array}` default `undefined`, application init post compile node modules, if it is `undefined` then the plugin will get `dependenciesKey` value or `dependencies` keys value in `package.json` as the init application's post complie node modules.
+
+* `sourceDir {String}` **0.5.1+** default `src`, application source directory, if your application's source directory is `lib` you should set this config to `lib`.
