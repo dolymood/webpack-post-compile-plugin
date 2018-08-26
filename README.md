@@ -11,8 +11,8 @@ npm i webpack-post-compile-plugin --save-dev
 ### Usage
 
 ```js
-import PostCompilePlugin from 'webpack-post-compile-plugin'
-var path = require('path')
+const PostCompilePlugin = require('webpack-post-compile-plugin')
+const path = require('path')
 
 module.exports = {
   // ...
