@@ -26,9 +26,6 @@ module.exports = {
     ]
   },
   plugins: [
-    new PostCompilePlugin({
-      dependenciesKey: 'myCompileDependencies',
-      compileDependencies: ['a', 'b']
-    })
+    new PostCompilePlugin()
   ]
 }

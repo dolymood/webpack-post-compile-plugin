@@ -26,6 +26,7 @@ describe('nested case', function () {
       var ret = require('../cases/nested/app.js')
       expect(ret.a).to.equal('nested a')
       expect(ret.b).to.equal('nested b, nested inner a, @dd nested inner a')
+      expect(ret.c).to.equal('cc')
       expect(ret.pkg.name).to.equal('nested')
       done()
     })

@@ -48,6 +48,7 @@ And if you can control all the packages which you want to post compile, you can 
 }
 ```
 
+
 Or you can add `compileDependencies` to your application `package.json`:
 
 ```js
@@ -57,6 +58,30 @@ Or you can add `compileDependencies` to your application `package.json`:
   "compileDependencies": ["xx-pkg"]
 }
 ```
+
+After 1.0.0+, you can alse use `postCompile` like this:
+
+```js
+{
+  "name": "your-one-pkg",
+  // ...
+  "postCompile": "src/*.js"
+  // ...
+}
+```
+
+```js
+{
+  "name": "your-one-pkg",
+  // ...
+  "postCompile": [
+    "*.js"
+  ]
+  // ...
+}
+```
+
+1.0.0+ `postCompile` uses [micromatch](https://github.com/micromatch/micromatch#matching-features) to match the post compile files.
 
 #### Options
 
