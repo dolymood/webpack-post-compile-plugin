@@ -19,9 +19,12 @@ describe('normal case', function () {
         .to.be.true
       expect(rule.resource(path.resolve(__dirname, '../cases/normal/node_modules/m/index.js')))
         .to.be.false
+      expect(rule.resource(path.resolve(__dirname, '../cases/normal/node_modules/@d/d/index.js')))
+        .to.be.true
       var ret = require('../cases/normal/app.js')
       expect(ret.a).to.equal('a')
       expect(ret.b).to.equal('b')
+      expect(ret.d).to.equal('d')
       done()
     })
   })

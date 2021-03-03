@@ -22,6 +22,10 @@ module.exports = {
     ]
   },
   plugins: [
-    new PostCompilePlugin()
+    new PostCompilePlugin({
+      compilePath: [
+        'node_modules/@d'
+      ]
+    })
   ]
 }
