@@ -88,7 +88,8 @@ After 1.0.0+, you can alse use `postCompile` like this:
 ```js
 new PostCompilePlugin({
   dependenciesKey: 'myCompileDependencies',
-  compileDependencies: ['a', 'b']
+  compileDependencies: ['a', 'b'],
+  compilePaths: ['node_module/@test']
 })
 ```
 
@@ -97,3 +98,5 @@ new PostCompilePlugin({
 * `compileDependencies {Array}` default `undefined`, application init post compile node modules, if it is `undefined` then the plugin will get `dependenciesKey` value or `dependencies` keys value in `package.json` as the init application's post complie node modules.
 
 * `sourceDir {String}` **0.5.1+** default `src`, application source directory, if your application's source directory is `lib` you should set this config to `lib`.
+
+* `compilePaths {Array}` **1.1.0+** default `undefined`, a dependencies matching any of these conditions will be treated as an post compile module.
