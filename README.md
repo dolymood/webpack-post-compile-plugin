@@ -99,4 +99,4 @@ new PostCompilePlugin({
 
 * `sourceDir {String}` **0.5.1+** default `src`, application source directory, if your application's source directory is `lib` you should set this config to `lib`.
 
-* `compilePaths {Array}` **1.1.0+** default `undefined`, a dependencies matching any of these conditions will be treated as an post compile module.
+* `compilePaths {Array}` **1.1.0+** default `undefined`, a dependencies matching any of these conditions will be treated as post compile modules.
