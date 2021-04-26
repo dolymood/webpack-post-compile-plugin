@@ -10,7 +10,7 @@ module.exports = {
     path: path.resolve(__dirname, './'),
     library: 'normal',
     libraryTarget: 'umd'
-    // globalObject: 'this'
+    // globalObject: 'this' // webpack5
   },
   module: {
     rules: [
@@ -21,7 +21,8 @@ module.exports = {
       },
       {
         test: /\.json$/,
-        loader: 'json-loader'
+        loader: 'json-loader',
+        include: [path.resolve(__dirname, './')]
       }
     ]
   },

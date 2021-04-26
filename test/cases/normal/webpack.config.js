@@ -10,7 +10,7 @@ module.exports = {
     path: path.resolve(__dirname, './'),
     library: 'normal',
     libraryTarget: 'umd'
-    // globalObject: 'this'
+    // globalObject: 'this' // webpack5
   },
   module: {
     rules: [
