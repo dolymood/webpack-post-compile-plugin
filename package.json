@@ -59,7 +59,7 @@
     "json-loader": "^0.5.7",
     "mocha": "^3.5.3",
     "nyc": "^11.2.1",
-    "webpack": "^3.11.0"
+    "webpack": "^5.36.2"
   },
   "peerDependencies": {
     "webpack": ">=3"
