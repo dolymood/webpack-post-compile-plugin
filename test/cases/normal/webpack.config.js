@@ -15,6 +15,12 @@ module.exports = {
   module: {
     rules: [
       {
+        enforce: 'pre',
+        test: /\.js$/,
+        loader: path.resolve(__dirname, './node_modules/pre-loader'),
+        include: [path.resolve(__dirname, './src')]
+      },
+      {
         test: /\.js$/,
         loader: 'babel-loader',
         include: [path.resolve(__dirname, './src')]
