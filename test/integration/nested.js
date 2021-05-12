@@ -1,9 +1,13 @@
 var path = require('path')
+var shell = require('shelljs')
 var webpack = require('webpack')
 var webpackConfig = require('../cases/nested/webpack.config')
 var expect = require('chai').expect
 
 describe('nested case', function () {
+  beforeEach(() => {
+    shell.rm('../cases/nested/app.js')
+  })
   it('webpack options should be correct', function (done) {
     webpack(webpackConfig, function (err, stats) {
       var compiler = stats.compilation.compiler
